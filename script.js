@@ -1,15 +1,50 @@
-async function loadVandals() {
-    const { data } = await api.get('v1/weapons/skins')
-    const list = data.data
+const vandalCarrousel = document.querySelector('.vandal--carrousel')
 
-    const vandals = []
+let skins = []
 
-    for (let i = 0; i < list.length; i++) {
-        if (list[i].displayName.includes('Vandal') == true) {
-            vandals.push(list[i])
-        }
+
+function filterVandal() {
+    vandalCarrousel.innerHTML = ''
+
+    for (const vandal of skins.filter((item) => item.displayName.includes('Vandal'))) {
+        const vandalThumb = document.createElement('div')
+        vandalThumb.classList.add('vandal--thumb')
+        vandalThumb.style.backgroundImage = `url(${vandal.displayIcon})`
+        vandalCarrousel.appendChild(vandalThumb)
+
     }
-    console.log(vandals);
+
+}
+async function loadSkins() {
+    const { data } = await api.get('v1/weapons/skins')
+    const list = data.data;
+    skins = list
+
+    filterVandal()
 }
 
-loadVandals()
+loadSkins()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

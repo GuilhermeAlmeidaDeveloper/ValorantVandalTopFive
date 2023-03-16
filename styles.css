@@ -2,6 +2,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-image: url(/images/1329687.jpg);
+    background-repeat: no-repeat;
+    background-size: cover
 }
 
 .vandal--info {
@@ -21,5 +24,60 @@ body {
 
 .skins--conteiner {
     display: flex;
-    flex-direction: column;
+}
+
+.ranking--skins {
+    width: 15%;
+    height: 500px;
+    background-color: blue;
+}
+
+.vandal--video {
+    width: 42.5%;
+    height: 500px;
+    background-color: orange;
+
+}
+
+.vandal--colors {
+    width: 42.5%;
+    height: 500px;
+    background-color: yellow;
+}
+
+.conteiner--carrousel {
+    width: 99.1vw;
+    height: 270px;
+    background-color: pink;
+    display: flex;
+    align-items: center;
+}
+
+.conteiner--carrousel img {
+    height: 50px;
+    width: 50px;
+    padding: 15px;
+}
+
+.vandal--carrousel {
+    /* border: 1px solid grey;
+    border-radius: 8px; */
+    width: 95%;
+    height: 185px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.vandal--thumb {
+    width: 327px;
+    height: 180px;
+    background-image: url('https://media.valorant-api.com/weaponskinlevels/258f4b78-4286-a93b-309a-0bada49c06e1/displayicon.png');
+    background-repeat: no-repeat;
+    background-size: 330px;
+    background-position: center;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px;
+
 }
