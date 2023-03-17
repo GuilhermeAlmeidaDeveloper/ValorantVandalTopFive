@@ -48,7 +48,7 @@ body {
 .conteiner--carrousel {
     width: 99.1vw;
     height: 270px;
-    /* background-color: pink; */
+    background-color: pink;
     display: flex;
     align-items: center;
 }
@@ -75,7 +75,7 @@ body {
     background-repeat: no-repeat;
     background-size: 330px;
     background-position: center;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 8px;
     box-shadow: 0px 4px 8px;
 
