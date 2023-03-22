@@ -5,13 +5,18 @@ const videoHighlight = document.querySelector('.video--highlight')
 const availableChromas = document.querySelector('.available-chromas')
 const skinDisponivel = document.querySelector('.vandal-color-available')
 const vandalVideo = document.querySelector('.vandal--video')
-const btnSelector = document.querySelector('.selector')
+const btnSelector = document.querySelector('#btn-selector')
 const vandalNameInTitle = document.querySelector('#title')
 const availableTitleSkins = document.querySelector('.available-title')
 const videoMsg = document.querySelector('#video-msg')
+const allAvailableChromas = document.querySelectorAll('.vandal-color-available')
+const conteinerTop5 = document.querySelector('.conteiner-top5')
+const top5 = document.querySelector('.top-5')
+const btnDone = document.querySelector('.done')
 
 let skins = []
 let skin = null
+let chromaSelected = null
 let page = 0
 
 const MIN_PAGE = 0
@@ -44,27 +49,22 @@ function filterVandal() {
 
     for (let i = page; i < page + 5; i++) {
         const vandal = vandalsData[i];
-        console.log(page);
 
         const vandalThumb = document.createElement('div')
         vandalThumb.classList.add('vandal--thumb')
         vandalThumb.style.backgroundImage = `url(${vandal.displayIcon})`
         vandalThumb.onclick = function () {
 
-            availableTitleSkins.innerHTML = 'CHOOSE YOUR FAVOURITE SKIN COLOR:'
-            availableTitleSkins.style.fontSize = '20px'
-            availableTitleSkins.style.marginTop = '10px'
-
-            vandalNameInTitle.innerHTML = vandal.displayName
-
-            btnSelector.style.display = 'block'
-
             skin = vandal
 
             availableChromas.innerHTML = ''
 
+            vandalNameInTitle.innerHTML = vandal.displayName;
+            btnSelector.style.display = 'block';
 
-
+            availableTitleSkins.innerHTML = 'CHOOSE YOUR FAVOURITE SKIN COLOR:'
+            availableTitleSkins.style.fontSize = '20px'
+            availableTitleSkins.style.marginTop = '10px'
 
 
             const skinVideo = document.createElement('video')
@@ -77,21 +77,18 @@ function filterVandal() {
             skinVideo.setAttribute('autoplay', 'yes')
             skinVideo.muted = true
 
-
-
-
-
-
-
-
-
-
             for (const chroma of skin.chromas) {
                 const skinDisponivel = document.createElement('div')
                 skinDisponivel.classList.add('vandal-color-available')
-                skinDisponivel.style.backgroundImage = `url(${chroma.displayIcon || chroma.fullRender || skin.displayIcon})`
+                skinDisponivel.setAttribute('id', chroma.uuid)
+                skinDisponivel.style.backgroundImage = `url(${chroma.displayIcon || chroma.fullRender || skin.displayIcon})`;
+
 
                 skinDisponivel.onclick = function mostrarVideo() {
+                    chromaSelected = chroma;
+
+
+                    // visualizar video
                     vandalVideo.innerHTML = ''
 
                     if (chroma.streamedVideo === null && skin.levels[skin.levels.length - 1].streamedVideo === null) {
@@ -105,22 +102,54 @@ function filterVandal() {
                     }
 
 
+                    // alterar selected
+                    const allAvailableChromas = document.querySelectorAll('.vandal-color-available')
+
+                    for (const iterator of allAvailableChromas) {
+                        iterator.classList.remove('selected')
+                    } skinDisponivel.classList.add('selected')
+
+
 
                 }
-
                 availableChromas.appendChild(skinDisponivel)
+
+
             }
+
 
 
         };
         vandalCarrousel.appendChild(vandalThumb);
+
+
     }
-
-
-
 
 }
 
+
+btnSelector.addEventListener('click', () => {
+
+
+
+    const ranking = document.createElement('div')
+
+
+    ranking.classList.add('tops')
+
+    ranking.style.backgroundImage = `url(${chromaSelected.fullRender || chromaSelected.displayIcon})`;
+
+    const allSkinsTop = document.querySelectorAll('.tops')
+
+    if (allSkinsTop.length < 5) {
+        conteinerTop5.appendChild(ranking)
+
+    }
+
+    if (allSkinsTop.length == 4) {
+        btnDone.style.display = 'block'
+    }
+})
 
 async function loadSkins() {
     const { data } = await api.get('v1/weapons/skins')

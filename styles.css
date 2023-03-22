@@ -186,6 +186,9 @@ body {
     width: 300px;
     display: flex;
     align-items: flex-end;
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-position: center;
 
 
 }
@@ -199,6 +202,7 @@ body {
 
 .conteiner-top5 {
     display: flex;
+    flex-direction: column;
 }
 
 .ranking--skins {
@@ -210,4 +214,16 @@ body {
 
 .top5-sentence {
     margin-bottom: 10px;
+}
+
+.done {
+    margin-top: 10px;
+}
+
+.selected {
+    border: 3px green solid;
+}
+
+.done {
+    display: none;
 }
