@@ -197,7 +197,12 @@ body {
 
     background-color: red;
     width: 100%;
+    font-size: 12px;
 
+}
+
+.btn--excluir {
+    height: 13px;
 }
 
 .conteiner-top5 {

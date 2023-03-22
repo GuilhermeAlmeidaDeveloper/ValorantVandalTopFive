@@ -60,7 +60,6 @@ function filterVandal() {
             availableChromas.innerHTML = ''
 
             vandalNameInTitle.innerHTML = vandal.displayName;
-            btnSelector.style.display = 'block';
 
             availableTitleSkins.innerHTML = 'CHOOSE YOUR FAVOURITE SKIN COLOR:'
             availableTitleSkins.style.fontSize = '20px'
@@ -87,6 +86,7 @@ function filterVandal() {
                 skinDisponivel.onclick = function mostrarVideo() {
                     chromaSelected = chroma;
 
+                    btnSelector.style.display = 'block';
 
                     // visualizar video
                     vandalVideo.innerHTML = ''
@@ -130,25 +130,39 @@ function filterVandal() {
 
 btnSelector.addEventListener('click', () => {
 
-
+    console.log(chromaSelected);
 
     const ranking = document.createElement('div')
-
+    const vandalName = document.createElement('div')
+    const btnExcluir = document.createElement('button')
 
     ranking.classList.add('tops')
+    vandalName.classList.add('vandal--name')
+    btnExcluir.classList.add('btn--excluir')
 
     ranking.style.backgroundImage = `url(${chromaSelected.fullRender || chromaSelected.displayIcon})`;
+
+    vandalName.innerHTML = skin.displayName
+    btnExcluir.innerHTML = 'x'
+
+
 
     const allSkinsTop = document.querySelectorAll('.tops')
 
     if (allSkinsTop.length < 5) {
+
         conteinerTop5.appendChild(ranking)
+        ranking.appendChild(vandalName)
+        ranking.appendChild(btnExcluir)
+
 
     }
 
     if (allSkinsTop.length == 4) {
         btnDone.style.display = 'block'
     }
+
+
 })
 
 async function loadSkins() {
