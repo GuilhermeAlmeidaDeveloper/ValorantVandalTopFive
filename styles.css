@@ -199,6 +199,12 @@ body {
 
 }
 
+.rank-position {
+    background-color: white;
+    width: 25px;
+    height: 25px;
+}
+
 .vandal--name {
 
     background-color: red;
@@ -240,4 +246,9 @@ body {
 
 .done {
     display: none;
+}
+
+.vandal--selected {
+    display: none;
+
 }

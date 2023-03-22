@@ -15,6 +15,7 @@ const top5 = document.querySelector('.top-5')
 const btnDone = document.querySelector('.done')
 const top5sentence = document.querySelector('.top5-sentence')
 const btnExcluir = document.querySelector('.btn--excluir')
+const vandalSelectedTxt = document.querySelector('.vandal--selected')
 
 
 let skins = []
@@ -61,6 +62,7 @@ function filterVandal() {
         vandalThumb.style.backgroundImage = `url(${vandal.displayIcon})`
         vandalThumb.onclick = function () {
 
+            vandalSelectedTxt.style.display = 'block';
             skin = vandal
 
             availableChromas.innerHTML = ''
@@ -91,8 +93,8 @@ function filterVandal() {
 
                 skinDisponivel.onclick = function mostrarVideo() {
                     chromaSelected = chroma;
-
                     btnSelector.style.display = 'block';
+
 
                     // visualizar video
                     vandalVideo.innerHTML = ''
@@ -141,20 +143,24 @@ btnSelector.addEventListener('click', () => {
     top5sentence.innerHTML = 'Here are your top five vandals:'
     top5sentence.style.fontSize = '15px'
 
+    let rank = 1
 
     const skinDisponivel = document.querySelector('.vandal-color-available')
     const selecioanda = document.querySelector('.selected')
     const ranking = document.createElement('div')
     const vandalName = document.createElement('div')
     const btnExcluir = document.createElement('button')
+    const rPosition = document.createElement('div')
 
     ranking.classList.add('tops')
     vandalName.classList.add('vandal--name')
     btnExcluir.classList.add('btn--excluir')
+    rPosition.classList.add('rank-position')
 
     ranking.style.backgroundImage = `url(${chromaSelected.fullRender || chromaSelected.displayIcon})`;
     vandalName.innerHTML = skin.displayName
     btnExcluir.innerHTML = 'x'
+    rPosition.innerHTML = rank
 
     selecioanda.classList.remove('selected')
     btnSelector.style.display = 'none';
@@ -166,8 +172,11 @@ btnSelector.addEventListener('click', () => {
 
 
         conteinerTop5.appendChild(ranking)
+        // ranking.appendChild(rPosition)
         ranking.appendChild(vandalName)
         vandalName.appendChild(btnExcluir)
+
+
 
     }
 
@@ -183,6 +192,7 @@ btnSelector.addEventListener('click', () => {
     })
 
 
+
 })
 
 function refreshDoneBtn() {
@@ -194,6 +204,10 @@ function refreshDoneBtn() {
     }
 }
 
+btnDone.addEventListener('click', () => {
+    const rnkSkins = document.querySelector('.ranking--skins')
+    rnkSkins.print()
+})
 
 async function loadSkins() {
     const { data } = await api.get('v1/weapons/skins')
