@@ -1,3 +1,13 @@
+@font-face {
+    font-family: valorant;
+
+    src: url(fonts/Valorant\ Font.ttf) format('truetype');
+}
+
+* {
+    font-family: valorant;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -12,14 +22,19 @@ body {
     height: 200px;
     background-color: red;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
 
 }
 
+
+
 .vandal--title {
     display: flex;
+    margin-top: 30px;
+    font-size: 20px;
 }
 
 .skins--conteiner {
@@ -38,6 +53,9 @@ body {
     background-color: orange;
     align-items: center;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .conteiner--carrousel {
@@ -55,8 +73,7 @@ body {
 }
 
 .vandal--carrousel {
-    /* border: 1px solid grey;
-    border-radius: 8px; */
+
     width: 95%;
     height: 185px;
     padding: 20px;
@@ -104,10 +121,9 @@ body {
     justify-self: center;
 }
 
-.btn-choose {
-    background-color: chartreuse;
-    width: 120px;
-    height: 30px;
+.btn-choose button {
+    width: 200px;
+    height: 60px;
 
 }
 
@@ -120,7 +136,18 @@ body {
 .available-title h1 {
     margin-top: 10px;
     margin-bottom: 0px;
-    font-size: medium;
+    font-size: 25px;
+
+}
+
+.vandal--video h1 {
+    font-size: 25px
+}
+
+.vandals-chromas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .vandal--thumb {
@@ -136,4 +163,12 @@ body {
     background-repeat: no-repeat;
     background-size: 330px;
     background-position: center;
+}
+
+.selector {
+    display: none;
+}
+
+.vandal-color-available {
+    cursor: pointer;
 }

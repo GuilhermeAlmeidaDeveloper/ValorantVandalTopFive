@@ -5,6 +5,9 @@ const videoHighlight = document.querySelector('.video--highlight')
 const availableChromas = document.querySelector('.available-chromas')
 const skinDisponivel = document.querySelector('.vandal-color-available')
 const vandalVideo = document.querySelector('.vandal--video')
+const btnSelector = document.querySelector('.selector')
+const vandalNameInTitle = document.querySelector('#title')
+const availableTitleSkins = document.querySelector('.available-title')
 
 let skins = []
 let skin = null
@@ -46,29 +49,59 @@ function filterVandal() {
         vandalThumb.classList.add('vandal--thumb')
         vandalThumb.style.backgroundImage = `url(${vandal.displayIcon})`
         vandalThumb.onclick = function () {
+
+            availableTitleSkins.innerHTML = 'CHOOSE YOUR FAVOURITE SKIN COLOR:'
+            availableTitleSkins.style.fontSize = '20px'
+            availableTitleSkins.style.marginTop = '10px'
+
+            vandalNameInTitle.innerHTML = vandal.displayName
+
+            btnSelector.style.display = 'block'
+
             skin = vandal
 
             availableChromas.innerHTML = ''
             vandalVideo.innerHTML = ''
 
-            const skinVideo = document.createElement('iframe')
+
+
+
+            const skinVideo = document.createElement('video')
             skinVideo.setAttribute('src', skin.levels[skin.levels.length - 1].streamedVideo)
             skinVideo.setAttribute('width', '615px')
-            skinVideo.setAttribute('height', '400px')
+            skinVideo.setAttribute('height', '500px')
             skinVideo.setAttribute('allow', 'autoplay')
             skinVideo.setAttribute('frameborder', '0')
+            skinVideo.setAttribute('controls', '1')
+            skinVideo.setAttribute('autoplay', 'yes')
+            skinVideo.muted = true
 
-            skinVideo.muted = true;
+
 
             vandalVideo.appendChild(skinVideo)
+
+
+
 
             for (const chroma of skin.chromas) {
                 const skinDisponivel = document.createElement('div')
                 skinDisponivel.classList.add('vandal-color-available')
                 skinDisponivel.style.backgroundImage = `url(${chroma.displayIcon || chroma.fullRender || skin.displayIcon})`
-                skinDisponivel.onclick = function () {
-                    console.log(skin);
-                    skinVideo.setAttribute('src', chroma.streamedVideo || skin.levels[skin.levels.length - 1].streamedVideo)
+
+                skinDisponivel.onclick = function mostrarVideo() {
+
+
+                    if (chroma.streamedVideo === null && skin.levels[skin.levels.length - 1].streamedVideo === null) {
+                        skinVideo.style.display = 'none'
+                        vandalVideo.innerHTML = 'NO VANDAL VIDEO AVAILABLE :('
+                        vandalVideo.style.fontSize = '20px'
+
+                    } else {
+                        skinVideo.setAttribute('src', chroma.streamedVideo || skin.levels[skin.levels.length - 1].streamedVideo)
+                    }
+
+
+
                 }
 
                 availableChromas.appendChild(skinDisponivel)
