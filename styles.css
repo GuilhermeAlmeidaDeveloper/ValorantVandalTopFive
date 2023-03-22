@@ -141,6 +141,10 @@ body {
 
 }
 
+.top5-sentence {
+    font-size: 25px;
+}
+
 .vandal--video h1 {
     font-size: 25px
 }
@@ -182,14 +186,16 @@ body {
 
 .tops {
     border: 1px solid black;
-    height: 85px;
-    width: 300px;
+
+    box-shadow: 8px 0px 10px;
+    height: 90px;
+    width: 350px;
     display: flex;
     align-items: flex-end;
     background-repeat: no-repeat;
-    background-size: 200px;
+    background-size: 250px;
     background-position: center;
-
+    margin: 0px;
 
 }
 
@@ -198,11 +204,14 @@ body {
     background-color: red;
     width: 100%;
     font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    height: 12PX;
 
 }
 
 .btn--excluir {
-    height: 13px;
+    height: 100%;
 }
 
 .conteiner-top5 {

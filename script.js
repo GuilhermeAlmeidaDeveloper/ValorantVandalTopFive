@@ -13,6 +13,9 @@ const allAvailableChromas = document.querySelectorAll('.vandal-color-available')
 const conteinerTop5 = document.querySelector('.conteiner-top5')
 const top5 = document.querySelector('.top-5')
 const btnDone = document.querySelector('.done')
+const top5sentence = document.querySelector('.top5-sentence')
+const btnExcluir = document.querySelector('.btn--excluir')
+
 
 let skins = []
 let skin = null
@@ -42,7 +45,10 @@ btnNext.addEventListener('click', () => {
     filterVandal()
 })
 
+
 function filterVandal() {
+
+
     vandalCarrousel.innerHTML = ''
 
     vandalsData = skins.filter((item) => item.displayName.includes('Vandal') && item.displayIcon)
@@ -125,13 +131,19 @@ function filterVandal() {
 
     }
 
+
+
 }
 
 
 btnSelector.addEventListener('click', () => {
 
-    console.log(chromaSelected);
+    top5sentence.innerHTML = 'Here are your top five vandals:'
+    top5sentence.style.fontSize = '15px'
 
+
+    const skinDisponivel = document.querySelector('.vandal-color-available')
+    const selecioanda = document.querySelector('.selected')
     const ranking = document.createElement('div')
     const vandalName = document.createElement('div')
     const btnExcluir = document.createElement('button')
@@ -141,29 +153,47 @@ btnSelector.addEventListener('click', () => {
     btnExcluir.classList.add('btn--excluir')
 
     ranking.style.backgroundImage = `url(${chromaSelected.fullRender || chromaSelected.displayIcon})`;
-
     vandalName.innerHTML = skin.displayName
     btnExcluir.innerHTML = 'x'
 
+    selecioanda.classList.remove('selected')
+    btnSelector.style.display = 'none';
 
-
+    console.log(skinDisponivel);
     const allSkinsTop = document.querySelectorAll('.tops')
 
     if (allSkinsTop.length < 5) {
 
+
         conteinerTop5.appendChild(ranking)
         ranking.appendChild(vandalName)
-        ranking.appendChild(btnExcluir)
-
+        vandalName.appendChild(btnExcluir)
 
     }
 
     if (allSkinsTop.length == 4) {
         btnDone.style.display = 'block'
+
+
     }
+
+    btnExcluir.addEventListener('click', () => {
+        conteinerTop5.removeChild(ranking)
+        refreshDoneBtn()
+    })
 
 
 })
+
+function refreshDoneBtn() {
+    const allSkinsTop = document.querySelectorAll('.tops')
+    if (allSkinsTop.length < 5) {
+        btnDone.style.display = 'none'
+    } else {
+        btnDone.style.display = 'block'
+    }
+}
+
 
 async function loadSkins() {
     const { data } = await api.get('v1/weapons/skins')
