@@ -43,7 +43,7 @@ body {
 
 .ranking--skins {
     width: 25%;
-    height: 500px;
+    height: 520px;
     background-color: blue;
 }
 
@@ -119,6 +119,7 @@ body {
     justify-content: space-between;
     align-items: center;
     justify-self: center;
+    height: 520px;
 }
 
 .btn-choose button {
@@ -171,4 +172,42 @@ body {
 
 .vandal-color-available {
     cursor: pointer;
+}
+
+.top-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tops {
+    border: 1px solid black;
+    height: 85px;
+    width: 300px;
+    display: flex;
+    align-items: flex-end;
+
+
+}
+
+.vandal--name {
+
+    background-color: red;
+    width: 100%;
+
+}
+
+.conteiner-top5 {
+    display: flex;
+}
+
+.ranking--skins {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.top5-sentence {
+    margin-bottom: 10px;
 }
