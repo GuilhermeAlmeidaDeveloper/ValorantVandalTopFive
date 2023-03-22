@@ -67,7 +67,8 @@ function filterVandal() {
                 skinDisponivel.classList.add('vandal-color-available')
                 skinDisponivel.style.backgroundImage = `url(${chroma.displayIcon || chroma.fullRender || skin.displayIcon})`
                 skinDisponivel.onclick = function () {
-                    console.log(chroma)
+                    console.log(skin);
+                    skinVideo.setAttribute('src', chroma.streamedVideo || skin.levels[skin.levels.length - 1].streamedVideo)
                 }
 
                 availableChromas.appendChild(skinDisponivel)
