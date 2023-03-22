@@ -8,6 +8,7 @@ const vandalVideo = document.querySelector('.vandal--video')
 const btnSelector = document.querySelector('.selector')
 const vandalNameInTitle = document.querySelector('#title')
 const availableTitleSkins = document.querySelector('.available-title')
+const videoMsg = document.querySelector('#video-msg')
 
 let skins = []
 let skin = null
@@ -61,7 +62,7 @@ function filterVandal() {
             skin = vandal
 
             availableChromas.innerHTML = ''
-            vandalVideo.innerHTML = ''
+
 
 
 
@@ -78,7 +79,9 @@ function filterVandal() {
 
 
 
-            vandalVideo.appendChild(skinVideo)
+
+
+
 
 
 
@@ -89,7 +92,7 @@ function filterVandal() {
                 skinDisponivel.style.backgroundImage = `url(${chroma.displayIcon || chroma.fullRender || skin.displayIcon})`
 
                 skinDisponivel.onclick = function mostrarVideo() {
-
+                    vandalVideo.innerHTML = ''
 
                     if (chroma.streamedVideo === null && skin.levels[skin.levels.length - 1].streamedVideo === null) {
                         skinVideo.style.display = 'none'
@@ -98,6 +101,7 @@ function filterVandal() {
 
                     } else {
                         skinVideo.setAttribute('src', chroma.streamedVideo || skin.levels[skin.levels.length - 1].streamedVideo)
+                        vandalVideo.appendChild(skinVideo)
                     }
 
 
