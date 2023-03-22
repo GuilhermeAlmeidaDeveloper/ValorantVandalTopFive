@@ -119,8 +119,10 @@ function filterVandal() {
 
 
 
+
                 }
                 availableChromas.appendChild(skinDisponivel)
+
 
 
             }
@@ -185,6 +187,7 @@ btnSelector.addEventListener('click', () => {
 
 
     }
+
 
     btnExcluir.addEventListener('click', () => {
         conteinerTop5.removeChild(ranking)
