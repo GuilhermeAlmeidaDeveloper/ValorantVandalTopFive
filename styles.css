@@ -27,22 +27,17 @@ body {
 }
 
 .ranking--skins {
-    width: 15%;
+    width: 25%;
     height: 500px;
     background-color: blue;
 }
 
 .vandal--video {
-    width: 42.5%;
+    width: 32.5%;
     height: 500px;
     background-color: orange;
-
-}
-
-.vandal--colors {
-    width: 42.5%;
-    height: 500px;
-    background-color: yellow;
+    align-items: center;
+    padding: 10px;
 }
 
 .conteiner--carrousel {
@@ -79,4 +74,66 @@ body {
     border-radius: 8px;
     box-shadow: 0px 4px 8px;
 
+}
+
+.vandal--colors {
+    width: 42.5%;
+    height: 500px;
+    background-color: yellow;
+    display: flex;
+    flex-direction: row;
+}
+
+.vandal-color-available {
+    height: 150px;
+    width: 300px;
+    border: 1px black solid;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px;
+}
+
+.vandals-chromas {
+    background-color: aquamarine;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    justify-self: center;
+}
+
+.btn-choose {
+    background-color: chartreuse;
+    width: 120px;
+    height: 30px;
+
+}
+
+.available-chromas {
+    display: grid;
+    grid-template-columns: 350px 350px;
+}
+
+
+.available-title h1 {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: medium;
+}
+
+.vandal--thumb {
+    cursor: pointer;
+}
+
+.btn-prev,
+.btn-next {
+    cursor: pointer;
+}
+
+.vandal-color-available {
+    background-repeat: no-repeat;
+    background-size: 330px;
+    background-position: center;
 }
