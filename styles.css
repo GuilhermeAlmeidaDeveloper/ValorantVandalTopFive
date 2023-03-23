@@ -6,6 +6,9 @@
 
 * {
     font-family: valorant;
+    margin: 0;
+    bottom: 0;
+
 }
 
 body {
@@ -14,21 +17,24 @@ body {
     box-sizing: border-box;
     background-image: url(/images/1329687.jpg);
     background-repeat: no-repeat;
-    background-size: cover
+    background-size: cover;
+
 }
 
 .vandal--info {
     width: 100%;
     height: 200px;
-    background-color: red;
+    background-color: #202124;
+    border: 1px black solid;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: white;
+
 
 
 }
-
 
 
 .vandal--title {
@@ -39,35 +45,43 @@ body {
 
 .skins--conteiner {
     display: flex;
+
 }
 
 .ranking--skins {
     width: 25%;
     height: 520px;
-    background-color: blue;
+    background-color: #202124;
+    border: 1px black solid;
+    color: white;
 }
 
 .vandal--video {
     width: 32.5%;
     height: 500px;
-    background-color: orange;
+    background-color: #202124;
+    border: 1px black solid;
     align-items: center;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 
+
 .conteiner--carrousel {
-    width: 99.1vw;
+    width: 100%;
     height: 270px;
-    background-color: pink;
+    background-color: #202124;
+    border: 1px black solid;
     display: flex;
     align-items: center;
 }
 
 .conteiner--carrousel img {
     height: 50px;
+
     width: 50px;
     padding: 15px;
 }
@@ -112,7 +126,8 @@ body {
 }
 
 .vandals-chromas {
-    background-color: aquamarine;
+    background-color: #202124;
+    border: 1px black solid;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -120,6 +135,7 @@ body {
     align-items: center;
     justify-self: center;
     height: 520px;
+    color: white;
 }
 
 .btn-choose button {
@@ -191,12 +207,18 @@ body {
     height: 90px;
     width: 350px;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-end;
     background-repeat: no-repeat;
     background-size: 250px;
     background-position: center;
     margin: 0px;
 
+}
+
+.btn--excluir {
+    height: 20px
 }
 
 .rank-position {
@@ -207,18 +229,17 @@ body {
 
 .vandal--name {
 
-    background-color: red;
+    background-color: black;
     width: 100%;
     font-size: 12px;
     display: flex;
     justify-content: space-between;
     height: 12PX;
+    color: white;
 
 }
 
-.btn--excluir {
-    height: 100%;
-}
+
 
 .conteiner-top5 {
     display: flex;
@@ -251,4 +272,159 @@ body {
 .vandal--selected {
     display: none;
 
+
+
+
+}
+
+
+
+@media (max-width: 1260px) {
+    .vandal--info {
+        background-color: #202124;
+        border: 1px black solid;
+    }
+
+    .skins--conteiner {
+        flex-direction: column;
+
+    }
+
+    .ranking--skins {
+        width: 100%;
+    }
+
+    .vandal--video {
+        width: 100%;
+    }
+
+    .vandal--colors {
+        width: 100%;
+    }
+
+    .vandal--carrousel {
+        width: 200px;
+        height: 350px;
+        flex-direction: column;
+
+    }
+
+    .vandal--thumb {
+        width: 200px;
+        height: 800px;
+        margin: 10px;
+        background-repeat: no-repeat;
+        background-size: 160px;
+        background-position: center;
+
+
+    }
+
+    .conteiner--carrousel {
+        width: 100%;
+        height: 500px;
+        background-color: #202124;
+        border: 1px black solid;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .available-chromas {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .vandal-color-available {
+
+        background-repeat: no-repeat;
+        background-size: 230px;
+        background-position: center;
+        height: 50px;
+        width: 300px;
+        border: 1px black solid;
+        margin: 15px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px;
+    }
+
+    .vandal--video {
+        width: 100%;
+        height: 300px;
+        background-color: #202124;
+        border: 1px black solid;
+        align-items: center;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    video {
+        height: 200px;
+    }
+
+    .top5-sentence {
+        margin-bottom: 0;
+    }
+
+    .available-title h1 {
+        margin-top: 10px;
+        margin-bottom: 0px;
+        font-size: 20px;
+
+    }
+
+    #video-msg {
+        font-size: 20px;
+    }
+
+    .page-name h1 {
+        font-size: 20px;
+    }
+
+    .vandal--selected {
+        font-size: 15px;
+    }
+
+    #title {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1261px) and (max-width: 1700px) {
+    .vandal--info {
+        background-color: #202124;
+        border: 1px black solid;
+        width: 2000px;
+    }
+
+    video {
+        width: 400px;
+    }
+
+
+
+    .vandal--thumb {
+        height: 120px;
+        margin: 15px;
+        background-repeat: no-repeat;
+        background-size: 180px;
+        background-position: center;
+
+
+    }
+
+    .vandal--carrousel {
+        width: 100%;
+    }
+
+    .conteiner--carrousel {
+        width: 2000px
+    }
+
+    .skins--conteiner {
+        width: 2000px;
+    }
 }

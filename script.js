@@ -175,8 +175,9 @@ btnSelector.addEventListener('click', () => {
 
         conteinerTop5.appendChild(ranking)
         // ranking.appendChild(rPosition)
+        ranking.appendChild(btnExcluir)
         ranking.appendChild(vandalName)
-        vandalName.appendChild(btnExcluir)
+
 
 
 
